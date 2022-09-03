@@ -20,136 +20,186 @@ public class Band {
 	private String genre;
 
 	@Column(name = "years_active")
-	private int yearsActive;
+	private Integer yearsActive;
 
-	private int albums;
+	private Integer albums;
 
-	private int songs;
+	private Integer singles;
 
 	@Column(name = "most_played")
 	private String mostPlayed;
 
 	private String origin;
 
-	private int members;
+	private Integer members;
 
 	private String label;
 
-	@Column(name = "lead_singer")
-	private String leadSinger;
+	@Column(name = "lead_artist")
+	private String leadArtist;
 
 	public Band() {
 		super();
 	}
 
-	public Band(int id, String name, String genre, int yearsActive, int albums, int songs, String mostPlayed,
-			String origin, int members, String label, String leadSinger) {
+	
+
+	public Band(int id, String name, String genre, Integer yearsActive, Integer albums, Integer singles, String mostPlayed,
+			String origin, Integer members, String label, String leadArtist) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.genre = genre;
 		this.yearsActive = yearsActive;
 		this.albums = albums;
-		this.songs = songs;
+		this.singles = singles;
 		this.mostPlayed = mostPlayed;
 		this.origin = origin;
 		this.members = members;
 		this.label = label;
-		this.leadSinger = leadSinger;
+		this.leadArtist = leadArtist;
 	}
+
+
 
 	public int getId() {
 		return id;
 	}
 
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
 
 	public String getName() {
 		return name;
 	}
 
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
 
 	public String getGenre() {
 		return genre;
 	}
 
+
+
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
+
+
 
 	public int getYearsActive() {
 		return yearsActive;
 	}
 
-	public void setYearsActive(int yearsActive) {
+
+
+	public void setYearsActive(Integer yearsActive) {
 		this.yearsActive = yearsActive;
 	}
 
-	public int getAlbums() {
+
+
+	public Integer getAlbums() {
 		return albums;
 	}
 
-	public void setAlbums(int albums) {
+
+
+	public void setAlbums(Integer albums) {
 		this.albums = albums;
 	}
 
-	public int getSongs() {
-		return songs;
+
+
+	public Integer getSongs() {
+		return singles;
 	}
 
-	public void setSongs(int songs) {
-		this.songs = songs;
+
+
+	public void setSongs(Integer singles) {
+		this.singles = singles;
 	}
+
+
 
 	public String getMostPlayed() {
 		return mostPlayed;
 	}
 
+
+
 	public void setMostPlayed(String mostPlayed) {
 		this.mostPlayed = mostPlayed;
 	}
+
+
 
 	public String getOrigin() {
 		return origin;
 	}
 
+
+
 	public void setOrigin(String origin) {
 		this.origin = origin;
 	}
 
-	public int getMembers() {
+
+
+	public Integer getMembers() {
 		return members;
 	}
 
-	public void setMembers(int members) {
+
+
+	public void setMembers(Integer members) {
 		this.members = members;
 	}
+
+
 
 	public String getLabel() {
 		return label;
 	}
 
+
+
 	public void setLabel(String label) {
 		this.label = label;
 	}
 
-	public String getLeadSinger() {
-		return leadSinger;
+
+
+	public String getLeadArtist() {
+		return leadArtist;
 	}
 
-	public void setLeadSinger(String leadSinger) {
-		this.leadSinger = leadSinger;
+
+
+	public void setLeadArtist(String leadArtist) {
+		this.leadArtist = leadArtist;
 	}
+
+
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -160,8 +210,10 @@ public class Band {
 		if (getClass() != obj.getClass())
 			return false;
 		Band other = (Band) obj;
-		return Objects.equals(id, other.id);
+		return id == other.id;
 	}
+
+
 
 	@Override
 	public String toString() {
@@ -176,8 +228,8 @@ public class Band {
 		builder.append(yearsActive);
 		builder.append(", albums=");
 		builder.append(albums);
-		builder.append(", songs=");
-		builder.append(songs);
+		builder.append(", singles=");
+		builder.append(singles);
 		builder.append(", mostPlayed=");
 		builder.append(mostPlayed);
 		builder.append(", origin=");
@@ -186,10 +238,14 @@ public class Band {
 		builder.append(members);
 		builder.append(", label=");
 		builder.append(label);
-		builder.append(", leadSinger=");
-		builder.append(leadSinger);
+		builder.append(", leadArtist=");
+		builder.append(leadArtist);
 		builder.append("]");
 		return builder.toString();
 	}
+
+
+
+
 
 }
