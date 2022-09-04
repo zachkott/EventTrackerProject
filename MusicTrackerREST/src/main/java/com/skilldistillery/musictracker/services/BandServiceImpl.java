@@ -11,10 +11,10 @@ import com.skilldistillery.musictracker.repositories.BandRepository;
 
 @Service
 public class BandServiceImpl implements BandService {
-	
+
 	@Autowired
 	private BandRepository repo;
-	
+
 	@Override
 	public List<Band> getAllBands() {
 		return repo.findAll();
@@ -33,24 +33,52 @@ public class BandServiceImpl implements BandService {
 
 	@Override
 	public Band create(Band band) {
-		
-		if(band.getName() == null) {
+
+		if (band.getName() == null) {
 			band.setName("Untitled");
 		}
-		
+
 		return repo.saveAndFlush(band);
 	}
 
 	@Override
 	public Band update(Integer id, Band band) {
-		return null;
+		Optional<Band> bandOpt = repo.findById(id);
+		Band updated = null;
+		if (bandOpt.isPresent()) {
+			updated = bandOpt.get();
+
+			if (band.getName() != null) {
+				updated.setName(band.getName());
+			}
+			if (band.getGenre() != null) {
+				updated.setGenre(band.getGenre());
+			}
+			if (band.getYearsActive() != 0) {
+				updated.setYearsActive(band.getYearsActive());
+			}
+			if (band.getSongs() != null) {
+				updated.setSongs(band.getSongs());
+			}
+			if (band.getOrigin() != null) {
+				updated.setOrigin(band.getOrigin());
+			}
+			if (band.getMembers() != 0) {
+				updated.setMembers(band.getMembers());
+			}
+			if (band.getLeadArtist() != null) {
+				updated.setLeadArtist(band.getLeadArtist());
+			}
+			repo.saveAndFlush(updated);
+		}
+		return updated;
 	}
 
 	@Override
 	public boolean delete(Integer id) {
 		boolean deleted = false;
 		Optional<Band> bandOpt = repo.findById(id);
-		if(bandOpt.isPresent()) {
+		if (bandOpt.isPresent()) {
 			repo.delete(bandOpt.get());
 			deleted = true;
 		}

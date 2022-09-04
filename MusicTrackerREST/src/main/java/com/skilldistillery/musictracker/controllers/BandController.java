@@ -31,14 +31,14 @@ public class BandController {
 	}
 
 	@GetMapping(path = "bands/{id}")
-	public Band show(@PathVariable int id, HttpServletResponse response) {
-		Band band = service.findById(id);
+	public Band show(@PathVariable int id,  HttpServletResponse response) {
+		Band update = service.findById(id);
 
-		if (band == null) {
+		if (update == null) {
 			response.setStatus(404);
 		}
 
-		return band;
+		return update;
 	}
 	
 	@PostMapping("bands")

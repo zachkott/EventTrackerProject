@@ -98,7 +98,7 @@ public class Band {
 
 
 
-	public int getYearsActive() {
+	public Integer getYearsActive() {
 		return yearsActive;
 	}
 
