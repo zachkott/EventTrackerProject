@@ -85,4 +85,10 @@ public class BandServiceImpl implements BandService {
 		return deleted;
 	}
 
+	@Override
+	public List<Band> findByGenre(String genre) {
+		
+		return repo.findByGenre(genre);
+	}
+
 }

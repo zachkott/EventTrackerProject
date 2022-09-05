@@ -12,6 +12,7 @@ For our week 12 project we were tasked with creating an 'Event Tracker' that kee
 | HTTP Verb | URI                  | Request Body | Response Body    | Functionality                                              |
 |:----------|:---------------------|:-------------|:-----------------|:-----------------------------------------------------------|
 | GET       | '/api/bands'         |              | List of artists  | Return a list of all artists                               |
+| GET       |'/api/bandsGenre/Rock'|              | List by genre    | Return a list of all artists by genre                      |
 | GET       | '/api/bands/34'      |              | Single artist    | Return an artist by Id                                     |
 | POST      | 'api/bands'          |  JSON        | Add an artist    | Add an artist to the database                              |
 | PUT       | '/api/bands/44'      |  JSON        | Update an artist | Update an artist by Id                                     |
@@ -51,9 +52,12 @@ PUT http://localhost:8082/api/bands/{artistId}
 ```
 * Delete artist
 ```
-DELETE http://localhost:8082/api/bands{artistId}
+DELETE http://localhost:8082/api/bands/{artistId}
 ```
-
+* Find by genre
+```
+GET http://localhost:8082/api/bandsGenre/{genre}
+```
 ### Technologiges Used
 * AWS- EC2
 * Bootstrap

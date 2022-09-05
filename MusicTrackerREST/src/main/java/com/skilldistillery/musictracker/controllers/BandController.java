@@ -91,5 +91,9 @@ public class BandController {
 		}
 		
 	}
+	@GetMapping("bandsGenre/{genre}")
+	public List<Band> findByGenre(@PathVariable String genre) {
+		return service.findByGenre(genre);
+	}
 
 }
