@@ -10,11 +10,12 @@ For our week 12 project we were tasked with creating an 'Event Tracker' that kee
 
 ## Postman Routing
 | HTTP Verb | URI                  | Request Body | Response Body    | Functionality                                              |
-| GET       | '/api/bands'      |              |  List of artists  | Return a list of all artists                                      |
-| GET       | '/api/bands/34'    |              |  Single artist    | Return an artist by Id                                            |
-| POST      | 'api/bands'       |  JSON          |  Add an artist    | Add an artist to the database                                     |
-| PUT       | '/api/bands/44'    |  JSON           |  Update an artist | Update an artist by Id                                            |
-| DELETE    | '/api/bands/44'    |              |  Delete an artist | Delete an artist by Id                                            |
+|:----------|:---------------------|:-------------|:-----------------|:-----------------------------------------------------------|
+| GET       | '/api/bands'         |              | List of artists  | Return a list of all artists                               |
+| GET       | '/api/bands/34'      |              | Single artist    | Return an artist by Id                                     |
+| POST      | 'api/bands'          |  JSON        | Add an artist    | Add an artist to the database                              |
+| PUT       | '/api/bands/44'      |  JSON        | Update an artist | Update an artist by Id                                     |
+| DELETE    | '/api/bands/44'      |              | Delete an artist | Delete an artist by Id                                     |
 
 * Sample JSON for creating artist
 ```
