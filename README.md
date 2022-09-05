@@ -5,7 +5,7 @@ For our week 12 project we were tasked with creating an 'Event Tracker' that kee
 
 
 ## Schema
-<p align="center"><img src="media/musictrackerdb.png" width="350"></p>
+<p align="center"><img src="DB/musictrackerdb.png" width="350"></p>
 
 
 ## Postman Routing
