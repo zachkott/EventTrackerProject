@@ -29,6 +29,9 @@ function init(){
 		}
 		addNewArtist(artist);
 	});
+
+	
+
 	
 	
 	loadAllArtists();
@@ -121,6 +124,21 @@ function displayArtist(artist){
 	
 	
 	dataDiv.appendChild(ul);
+	
+	
+	let deleteBtn = document.createElement('button');
+	deleteBtn.textContent = 'Delete Artist';
+	dataDiv.appendChild(deleteBtn);
+	deleteBtn.addEventListener('click', function(e){
+		e.preventDefault();
+		console.log('Deleting Artist');
+		let artistId = document.artistForm.artistId.value;
+		deleteArtist(artistId);
+	});
+		
+	
+	
+	
 }
 
 
@@ -146,6 +164,24 @@ function addNewArtist(artist){
 	xhr.setRequestHeader("Content-type", "application/json");
 	let artistJson = JSON.stringify(artist);
 	xhr.send(artistJson);
+}
+
+
+//Delete artist
+function deleteArtist(artistId){
+	let xhr = new XMLHttpRequest();
+	xhr.open('DELETE', 'api/bands/' + artistId);
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState === 4){
+			if(xhr.status === 200 || xhr.status === 204){
+				console.log('Arist succesfully deleted')
+			}
+			else{
+				displayError('Error deleting artist ' + xhr.status)
+			}
+		}
+	}
+	xhr.send();
 }
 
 
