@@ -11,6 +11,26 @@ function init(){
 			getArtist(artistId);
 		}
 	});
+	
+	document.addArtistForm.addArist.addEventListener('click', function(e){
+		e.preventDefault();
+		console.log('Adding artist');
+		let artist = {
+			name: addArtistForm.name.value,
+			genre: addArtistForm.genre.value,
+			label: addArtistForm.label.value,
+			origin: addArtistForm.origin.value,
+			mostPlayed: addArtistForm.mostPlayed.value,
+			leadArtist: addArtistForm.leadArtist.value,
+			yearsActive: addArtistForm.yearsActive.value,
+			songs: addArtistForm.songs.value,
+			albums: addArtistForm.albums.value,
+			members: addArtistForm.members.value
+		}
+		addNewArtist(artist);
+	});
+	
+	
 	loadAllArtists();
 }
 
@@ -103,6 +123,32 @@ function displayArtist(artist){
 	dataDiv.appendChild(ul);
 }
 
+
+//Add new artist
+function addNewArtist(artist){
+	let xhr = new XMLHttpRequest();
+	xhr.open('POST', 'api/bands');
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState === 4){
+			if(xhr.status == 200 || xhr.status === 201){
+				console.log('Artist added')
+				let newArtist = JSON.parse(xhr.responseText);
+				displayArtist(newArtist);
+			}
+			else if (xhr.status === 404){
+				displayError('Invalid data');
+			}
+			else {
+				displayError('Error creating artist' + xhr.status);
+			}
+		}
+	}
+	xhr.setRequestHeader("Content-type", "application/json");
+	let artistJson = JSON.stringify(artist);
+	xhr.send(artistJson);
+}
+
+
 //Display all artists
 function displayArtists(artistList){
 	let dataDiv = document.getElementById("artistList");
@@ -116,6 +162,8 @@ function displayArtists(artistList){
 		ul.appendChild(li);
 	}
 }
+
+
 
 
 

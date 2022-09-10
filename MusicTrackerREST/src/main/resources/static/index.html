@@ -9,18 +9,38 @@
 <body>
 
 	<h1>Welcome To The Artist Academy</h1>
-	
-	<form name ="artistForm">
-	<input type="number" name="artistId">
-	<button name="lookup">Get Artist by Id</button>
-	</form>
-	
-	<div  id="output">
-	<div id="artistData"></div>
-	</div>
-	
 
-<div  id="artistList"></div>
+	<form name="artistForm">
+		<input type="number" name="artistId">
+		<button name="lookup">Get Artist by Id</button>
+	</form>
+
+	<div id="output">
+		<div id="artistData"></div>
+	</div>
+
+	<div>
+		<hr>
+		<form name="addArtistForm">
+			<h3>Add New Artist</h3>
+
+			<label for="Name">Name:</label><input type="text" name="name"><br>
+			<label for="Genre">Genre:</label><input type="text" name="genre"><br>
+			<label for="Label">Label:</label><input type="text" name="label"><br>
+			<label for="Origin">Origin:</label><input type="text" name="origin"><br>
+			<label for="MostPlayed">Most Played:</label><input type="text"name="mostPlayed"><br>
+			<label for="LeadArtist">Lead Artist:</label><input type="text" name="leadArtist"><br> 
+			<label for="YearsActive">Years Active:</label><input type="number" name="yearsActive"><br> 
+			<label for="Singles">Singles:</label><input type="number" name="songs"><br> 
+			<label for="Albums">Albums:</label><input type="number" name="albums"><br> 
+			<label for="Members">Members:</label><input type="number" name="members"><br>
+			<button name="addArist">Add Artist</button>
+
+		</form>
+	</div>
+
+
+	<div id="artistList"></div>
 
 </body>
 </html>
