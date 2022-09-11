@@ -9,19 +9,37 @@
 <body>
 
 	<h1>Welcome To The Artist Academy</h1>
-	
-	<div id="artistList"></div><br><hr>
 
 	<form name="artistForm">
 		<input type="number" name="artistId">
 		<button name="lookup">Get Artist by Id</button>
 		<!-- <button name="deleteArtist">Delete Artist</button> -->
 	</form>
-
+	<hr>
 	<div id="output">
+		<div id="artistProfile"></div>
 		<div id="artistData"></div>
-		<div id ="update"></div>
+		<div id="update"></div>
 	</div>
+
+	<h2>Artist List</h2>
+	<div id="artistList">
+		<table class="table table-striped table-hover">
+			<thead class="table-light">
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Label</th>
+					<th>Genre</th>
+					
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+	<br>
+
+
 
 	<div>
 		<hr>
@@ -32,17 +50,19 @@
 			<label for="Genre">Genre:</label><input type="text" name="genre"><br>
 			<label for="Label">Label:</label><input type="text" name="label"><br>
 			<label for="Origin">Origin:</label><input type="text" name="origin"><br>
-			<label for="MostPlayed">Most Played:</label><input type="text"name="mostPlayed"><br>
-			<label for="LeadArtist">Lead Artist:</label><input type="text" name="leadArtist"><br> 
-			<label for="YearsActive">Years Active:</label><input type="number" name="yearsActive"><br> 
-			<label for="Singles">Singles:</label><input type="number" name="songs"><br> 
-			<label for="Albums">Albums:</label><input type="number" name="albums"><br> 
-			<label for="Members">Members:</label><input type="number" name="members"><br>
+			<label for="MostPlayed">Most Played:</label><input type="text"
+				name="mostPlayed"><br> <label for="LeadArtist">Lead
+				Artist:</label><input type="text" name="leadArtist"><br> <label
+				for="YearsActive">Years Active:</label><input type="number"
+				name="yearsActive"><br> <label for="Singles">Singles:</label><input
+				type="number" name="songs"><br> <label for="Albums">Albums:</label><input
+				type="number" name="albums"><br> <label for="Members">Members:</label><input
+				type="number" name="members"><br>
 			<button name="addArtist">Add Artist</button>
 
 		</form>
 	</div>
-	
+
 	<!-- <div>
 		<hr>
 		<form name="updateArtistForm">
@@ -65,7 +85,7 @@
 	</div>
  -->
 
-	
+
 
 </body>
 </html>

@@ -60,6 +60,7 @@ function loadAllArtists(){
 //Find a single artist by Id
 function getArtist(artistId){
 	removeUpdateForm();
+	removeClickTable();
 	let xhr = new XMLHttpRequest();
 	xhr.open('GET', 'api/bands/' +  artistId);
 	xhr.onreadystatechange  = function(){
@@ -223,83 +224,86 @@ function deleteArtist(artistId){
 }
 
 
+
+
+
+
 //Display all artists
 function displayArtists(artistList){
-	let dataDiv = document.getElementById("artistList");
-	dataDiv.textContent = '';
-	var table = document.createElement('table');
-	table.style.border = 'inset 1px';
-	var head = document.createElement('thead');
-	var headTr = document.createElement('tr');
-	var th1 = document.createElement('th');
-	var th2 = document.createElement('th');
-	var th3 = document.createElement('th');
-	var th4 = document.createElement('th');
-	var th5 = document.createElement('th');
-	var th6 = document.createElement('th');
-	var th7 = document.createElement('th');
-	var th8 = document.createElement('th');
-	th1.textContent = 'Id';
-	th2.textContent = 'Name';
-	th3.textContent = 'Genre';
-	th4.textContent = 'Label';
-	th5.textContent = 'Lead Artist';
-	th6.textContent = 'Years Active';
-	th7.textContent = 'Most Played';
-	th8.textContent = 'Origin';
-	headTr.appendChild(th1);
-	headTr.appendChild(th2);
-	headTr.appendChild(th3);
-	headTr.appendChild(th4);
-	headTr.appendChild(th5);
-	headTr.appendChild(th6);
-	headTr.appendChild(th7);
-	headTr.appendChild(th8);
-	head.appendChild(headTr);
-	table.appendChild(head);
-	var tBody = document.createElement('tbody');
-	for(let i = 0; i < artistList.length; i++) {
-	  var tr = document.createElement('tr');
-	  var td1 = document.createElement('td');
-	  var td2 = document.createElement('td');
-	  var td3 = document.createElement('td');
-	  var td4 = document.createElement('td');
-	  var td5 = document.createElement('td');
-	  var td6 = document.createElement('td');
-	  var td7 = document.createElement('td');
-	  var td8 = document.createElement('td');
-	  td1.textContent = artistList[i].id;
-	  td2.textContent = artistList[i].name;
-	  td3.textContent = artistList[i].genre;
-	  td4.textContent = artistList[i].label;
-	  td5.textContent = artistList[i].leadArtist;
-	  td6.textContent = artistList[i].yearsActive;
-	  td7.textContent = artistList[i].mostPlayed;
-	  td8.textContent = artistList[i].origin;
-	  td1.style.border='solid 1px';
-	  td2.style.border='solid 1px';
-	  td3.style.border='solid 1px';
-	  td4.style.border='solid 1px';
-	  td5.style.border='solid 1px';
-	  td6.style.border='solid 1px';
-	  td7.style.border='solid 1px';
-	  td8.style.border='solid 1px';
-	  tr.appendChild(td1);
-	  tr.appendChild(td2);
-	  tr.appendChild(td3);
-	  tr.appendChild(td4);
-	  tr.appendChild(td5);
-	  tr.appendChild(td6);
-	  tr.appendChild(td7);
-	  tr.appendChild(td8);
-	  tBody.appendChild(tr);
-	}
-	table.appendChild(tBody);
-	dataDiv.appendChild(table);
+	let tbody = document.querySelector('#artistList>table>tbody');
+	tbody.textContent = '';
+	for (let artist of artistList) {
+		let tr = document.createElement('tr');
+		tbody.appendChild(tr);
+		let td = document.createElement('td');
+		td.textContent = artist.id;
+		tr.appendChild(td);
+		td = document.createElement('td');
+		td.textContent = artist.name;
+		tr.appendChild(td);
+		td = document.createElement('td');
+		td.textContent = artist.label;
+		tr.appendChild(td);
+		td = document.createElement('td');
+		td.textContent = artist.genre;
+		tr.appendChild(td);
+		
+		tr.addEventListener('click', function(evt){
+			let profile = document.getElementById('artistProfile');
+			profile.textContent = '';
+			let name = document.createElement('h1');
+			name.textContent =  artist.name;
+			profile.appendChild(name);
+			
+			let label = document.createElement('blockquote');
+			label.textContent = artist.label;
+			profile.appendChild(label);
+			
+			let ul = document.createElement('ul')
+			profile.appendChild(ul);
 	
+			
+			let origin = document.createElement('li');
+			origin.textContent = 'Origin: ' +artist.origin;
+			ul.appendChild(origin);
+			
+			let leadArtist = document.createElement('li');
+			leadArtist.textContent = 'Lead Artist: ' + artist.leadArtist;
+			ul.appendChild(leadArtist);
+			
+			let mostPlayed = document.createElement('li');
+			mostPlayed.textContent = 'Most Played: ' + artist.mostPlayed;
+			ul.appendChild(mostPlayed);
+			
+			let members = document.createElement('li');
+			members.textContent = 'Members: ' +  artist.members;
+			ul.appendChild(members);
+			
+			let albums = document.createElement('li');
+			albums.textContent = 'Albums: '  + artist.albums;
+			ul.appendChild(albums)
+			
+			let songs = document.createElement('li');
+			songs.textContent = 'Singles: '  + artist.songs;
+			ul.appendChild(songs)
+			
+			let yearsActive = document.createElement('li');
+			yearsActive.textContent = 'Albums: '  + artist.yearsActive;
+			ul.appendChild(yearsActive)
+			
+			console.log('Selected artist ' + artist.id);
+		
+			
+
+		});
+	}
 	
 	
 }
+
+
+
+
 
 //Update 
 updateArtistForm = function(artist){
@@ -475,6 +479,13 @@ function removeUpdateForm(){
     }
 }
 
+function removeClickTable(){
+    let dataDiv=document.getElementById("artistProfile");
+    dataDiv.textContent= '';
+    while(dataDiv.lastElementChild){
+    dataDiv.removeChild(dataDiv.firstElementChild);
+    }
+}
 
 
 
