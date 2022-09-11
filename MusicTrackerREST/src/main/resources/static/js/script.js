@@ -158,6 +158,7 @@ updateBtn.addEventListener('click', function(e){
 
 //Add new artist
 function addNewArtist(artist){
+	removeClickTable();
 	let xhr = new XMLHttpRequest();
 	xhr.open('POST', 'api/bands');
 	xhr.onreadystatechange = function(){
@@ -232,6 +233,8 @@ function deleteArtist(artistId){
 function displayArtists(artistList){
 	let tbody = document.querySelector('#artistList>table>tbody');
 	tbody.textContent = '';
+	
+	
 	for (let artist of artistList) {
 		let tr = document.createElement('tr');
 		tbody.appendChild(tr);
@@ -248,7 +251,10 @@ function displayArtists(artistList){
 		td.textContent = artist.genre;
 		tr.appendChild(td);
 		
-		tr.addEventListener('click', function(evt){
+	
+		tr.addEventListener('click', function(e){
+	
+			
 			let profile = document.getElementById('artistProfile');
 			profile.textContent = '';
 			let name = document.createElement('h1');
@@ -292,8 +298,14 @@ function displayArtists(artistList){
 			ul.appendChild(yearsActive)
 			
 			console.log('Selected artist ' + artist.id);
-		
 			
+			
+  		let items = document.getElementsByTagName('tr');
+  			for (let i = 0; i < items.length ; i++){
+    		console.log(items[i]);
+    		items[i].style.backgroundColor = 'white';
+ 		 }
+    		e.target.style.backgroundColor = 'lightgreen';		
 
 		});
 	}
@@ -479,6 +491,7 @@ function removeUpdateForm(){
     }
 }
 
+//Function removes profile when user searches by Id
 function removeClickTable(){
     let dataDiv=document.getElementById("artistProfile");
     dataDiv.textContent= '';
