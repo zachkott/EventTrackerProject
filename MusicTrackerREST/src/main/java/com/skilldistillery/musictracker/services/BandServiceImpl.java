@@ -54,8 +54,17 @@ public class BandServiceImpl implements BandService {
 			if (band.getGenre() != null) {
 				updated.setGenre(band.getGenre());
 			}
+			if (band.getLabel() != null) {
+				updated.setLabel(band.getLabel());
+			}
+			if (band.getMostPlayed() != null) {
+				updated.setMostPlayed(band.getMostPlayed());
+			}
 			if (band.getYearsActive() != 0) {
 				updated.setYearsActive(band.getYearsActive());
+			}
+			if (band.getAlbums() != null) {
+				updated.setAlbums(band.getAlbums());
 			}
 			if (band.getSongs() != null) {
 				updated.setSongs(band.getSongs());
