@@ -81,6 +81,7 @@ function getArtist(artistId){
 
 //Display Arist details
 function displayArtist(artist){
+	removeClickTable();
 	let dataDiv = document.getElementById('artistData');
 	dataDiv.textContent ='';
 	
@@ -183,6 +184,7 @@ function addNewArtist(artist){
 
 //Update artist
 function updateArtist(artist){
+	removeClickTable();
 	let xhr = new XMLHttpRequest();
 	xhr.open('PUT', 'api/bands/' + artist.id);
 	xhr.onreadystatechange = function(){
@@ -208,6 +210,7 @@ function updateArtist(artist){
 
 //Delete artist
 function deleteArtist(artistId){
+	removeUpdateForm();
 	let xhr = new XMLHttpRequest();
 	xhr.open('DELETE', 'api/bands/' + artistId);
 	xhr.onreadystatechange = function(){
@@ -319,7 +322,7 @@ function displayArtists(artistList){
 
 //Update 
 updateArtistForm = function(artist){
-	displayArtist(artist);
+	
 	
 	let dataDiv =document.getElementById('update');
 	dataDiv.textContent = '';
