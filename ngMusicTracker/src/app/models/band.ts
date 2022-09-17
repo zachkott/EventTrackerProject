@@ -6,9 +6,10 @@ export class Band {
   albums: number;
   mostPlayed: string;
   origin: string;
-  singles: number;
+  songs: number;
   members: number;
   label: string;
+  leadArtist: string;
 
   constructor(
     id: number = 0,
@@ -18,9 +19,10 @@ export class Band {
     albums: number = 0,
     mostPlayed: string = '',
     origin: string = '',
-    singles: number = 0,
+    songs: number = 0,
     members: number = 0,
-    label: string = ''
+    label: string = '',
+    leadArtist: string = ''
   ) {
     this.id = id;
     this.name = name;
@@ -29,8 +31,9 @@ export class Band {
     this.yearsActive = yearsActive;
     this.members = members;
     this.label = label;
-    this.singles = singles;
+    this.songs = songs;
     this.mostPlayed = mostPlayed;
     this.origin = origin;
+    this.leadArtist = leadArtist;
   }
 }

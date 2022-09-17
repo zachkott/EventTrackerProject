@@ -1,0 +1,59 @@
+<div *ngIf="!selected">
+  <table class="table table-striped table-hover">
+    <thead class="table-dark">
+      <tr>
+      <th>Name</th>
+      <th>Genre</th>
+      <th>Label</th>
+      <th>Origin</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let band of bands" >
+  <td (click)="displayBand(band); selected = band">{{band.name}}</td>
+  <td>{{band.genre}}</td>
+  <td>{{band.label}}</td>
+  <td>{{band.origin}}</td>
+  <td><button class="btn btn-danger"  (click)="deleteBand(band.id)">X</button></td>
+</tr>
+</table>
+<form *ngIf="!selected">
+  <label>Name: </label> <input type="text" name="name" [(ngModel)]="newBand.name"> <br>
+  <label>Genre: </label> <input type="text" name="genre" [(ngModel)]="newBand.genre"> <br>
+  <label>Label: </label><input type="text" name="label" [(ngModel)]="newBand.label" /> <br>
+  <label>Origin: </label><input type="text" name="origin" [(ngModel)]="newBand.origin" /> <br>
+  <label>Lead Artist: </label><input type="text" name="leadArtist" [(ngModel)]="newBand.leadArtist" /> <br>
+  <label>Most Played: </label><input type="text" name="mostPlayed" [(ngModel)]="newBand.mostPlayed" /> <br>
+  <label>Albums: </label><input type="number" name="albums" [(ngModel)]="newBand.albums" /> <br>
+  <label>Singles: </label><input type="number" name="singles" [(ngModel)]="newBand.songs" /> <br>
+  <label>Members: </label><input type="number" name="members" [(ngModel)]="newBand.members" /> <br>
+  <button (click)="addBand()">Add Artist</button>
+  </form>
+</div>
+
+
+<div *ngIf="selected && !editBand" >
+<h1>{{selected.name}}</h1>
+<h3>{{selected.genre}}</h3>
+<h3>{{selected.label}}</h3>
+<h3>{{selected.origin}}</h3>
+
+
+  <button (click)="displayTable()">Back</button>
+  <button (click)="setEditBand()">Edit</button>
+</div>
+
+<form  *ngIf="editBand">
+  <label>Name: </label> <input type="text" name="name" [(ngModel)]="editBand.name"> <br>
+  <label>Genre: </label> <input type="text" name="genre" [(ngModel)]="editBand.genre"> <br>
+  <label>Label: </label><input type="text" name="label" [(ngModel)]="editBand.label" /> <br>
+  <label>Origin: </label><input type="text" name="origin" [(ngModel)]="editBand.origin" /> <br>
+  <label>Lead Artist: </label><input type="text" name="leadArtist" [(ngModel)]="editBand.leadArtist" /> <br>
+  <label>Most Played: </label><input type="text" name="mostPlayed" [(ngModel)]="editBand.mostPlayed" /> <br>
+  <label>Albums: </label><input type="number" name="albums" [(ngModel)]="editBand.albums" /> <br>
+  <label>Singles: </label><input type="number" name="singles" [(ngModel)]="editBand.songs" /> <br>
+  <label>Members: </label><input type="number" name="members" [(ngModel)]="editBand.members" /> <br>
+
+ <button (click)="editBand = null">Cancel</button>
+ <button (click)="updateBand(editBand)">Save</button>
+ </form>
