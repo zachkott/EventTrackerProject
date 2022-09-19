@@ -9,10 +9,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './componets/home/home.component';
 import { AboutComponent } from './componets/about/about.component';
 import { ContactComponent } from './componets/contact/contact.component';
-import { AddFormComponent } from './componets/add-form/add-form.component';
 import { NavBarComponent } from './componets/nav-bar/nav-bar.component';
 import { BandComponent } from './componets/band/band.component';
 import { NotFoundComponent } from './componets/not-found/not-found.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddFormComponent } from './componets/add-form/add-form.component';
 
 @NgModule({
   declarations: [
@@ -20,16 +21,18 @@ import { NotFoundComponent } from './componets/not-found/not-found.component';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    AddFormComponent,
+
     NavBarComponent,
     BandComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AddFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [BandService],
   bootstrap: [AppComponent]

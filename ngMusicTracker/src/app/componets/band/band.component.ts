@@ -16,6 +16,9 @@ title = 'Artist Academy';
 
 selected: Band | null = null;
 
+added: Band | null = null;
+
+
 newBand = new Band();
 
 bands: Band[]=[];
@@ -67,6 +70,11 @@ editBand: Band | null = null;
   setEditBand() {
     this.editBand = Object.assign({}, this.selected);
   }
+
+  setAddedBand() {
+    this.editBand = Object.assign({}, this.added);
+  }
+
 
   updateBand(updatedBand: Band) {
     this.bandService.update(updatedBand).subscribe({

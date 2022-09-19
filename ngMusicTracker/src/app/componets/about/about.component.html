@@ -1,1 +1,178 @@
-<p>about works!</p>
+<h2>Overview
+</h2>
+
+<p>For our week 12 project we were tasked with creating an 'Event Tracker' that keeps track of
+ information over time. For this project I decided to create a Music tracker that keeps track of
+  artists/bands. Initially I wanted to include multiple tables that track upcoming events, songs,
+   albums etc.. However, for the first installment we were encouraged to limit our scope, so these
+   features will be added in the following installments.The first step in this project was building
+   the database, and creating the backend using RESTful Services.
+   The backend code is written in Java and comprised of basic CRUD functionality that allows a user to search by an Id,
+   add an artist, update an artist, and delete an artist. All API mappings were tested using Postman
+   to ensure URL's invoke the desired results. The frontend was first built using raw javascript in order to gain some
+   experience with DOM manipulation. However, for the final stretch of this project the frontend was rebuilt using angular and typescript.
+
+
+</p>
+<br>
+<br>
+
+
+
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel title="Back End">
+    <ng-template ngbPanelContent>
+      <p>The first step in this project was building the database, and creating the backend using RESTful Services.
+         The backend code is comprised of basic CRUD functionality that allows a user to search by an Id,
+         add an artist, update an artist, and delete an artist. All API mappings were tested using Postman
+         to ensure URL's invoke the desired results. </p>
+
+
+         <table class="table table-striped table-hover">
+          <thead class="table-dark">
+            <tr>
+            <th>HTTP Verb</th>
+            <th>URI</th>
+            <th>Request Body</th>
+            <th>Response Body</th>
+            <th>Functionality</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr >
+        <td>GET</td>
+        <td>'/api/bands</td>
+        <td></td>
+        <td>List of artists</td>
+        <td>Return a list of all artists</td>
+
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>'/api/bandsGenre/Rock</td>
+        <td></td>
+        <td>List by genre</td>
+        <td>Return a list of all artists by
+          genre</td>
+
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>'/api/bands/34</td>
+        <td></td>
+        <td>Single artist</td>
+        <td>Return an artist by Id</td>
+
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>'/api/bands</td>
+        <td>JSON</td>
+        <td>Add an Artist</td>
+        <td>Add an artist to the database</td>
+
+      </tr>
+      <tr>
+        <td>PUT</td>
+        <td>'/api/bands/43</td>
+        <td>JSON</td>
+        <td>Update an artist</td>
+        <td>Update an artist by their Id</td>
+
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>'/api/bands/43</td>
+        <td></td>
+        <td>Delete an artist</td>
+        <td>Delete an artist by Id</td>
+
+      </tr>
+      </tbody>
+      </table>
+
+
+      <h4>Sample JSON for creating artist</h4>
+       <p>
+
+           "name": "Generic Band", <br>
+           "genre": "Electro elevator", <br>
+           "yearsActive": 29, <br>
+           "albums": 7, <br>
+           "mostPlayed": "Best Song Ever", <br>
+           "origin": "Greensboro, North Carolina", <br>
+           "members": 1, <br>
+           "label": "Trippin' Records", <br>
+           "leadArtist": "Dennis Quade", <br>
+           "songs": 36
+
+       </p>
+
+<!-- <ul>
+  <li>Find All <br>
+    <a href="GET http://localhost:8082/api/bands">GET http://localhost:8082/api/bands</a>
+  </li>
+  <li>Find By Id <br>
+    <a href="GET http://localhost:8082/api/bands/{artistId}">GET http://localhost:8082/api/bands/{artistId}</a>
+  </li>
+  <li>Create Artist <br>
+    <a href="POST http://localhost:8082/api/bands">POST http://localhost:8082/api/bands</a>
+  </li>
+  <li>Update artist <br>
+  <a href="PUT http://localhost:8082/api/bands/{artistId}">PUT http://localhost:8082/api/bands/{artistId}</a>
+  </li>
+  <li>Delete artist <br>
+  <a href="DELETE http://localhost:8082/api/bands/{artistId}">DELETE http://localhost:8082/api/bands/{artistId}</a>
+  </li>
+  <li>Find by genre <br>
+    <a href="GET http://localhost:8082/api/bandsGenre/{genre}">GET http://localhost:8082/api/bandsGenre/{genre}</a>
+   </li>
+
+</ul> -->
+
+
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="Front End">
+
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+      <span>Technologies Used</span>
+    </ng-template>
+
+    <ng-template ngbPanelContent>
+      <ul>
+        <li>AWS- EC2</li>
+        <li>Java</li>
+        <li>Javascript</li>
+        <li>Typsecript</li>
+        <li>Angular</li>
+        <li>RESTful Services</li>
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>Gradle</li>
+        <li>MySQL Workbench</li>
+        <li> Postman</li>
+        <li> Spring Boot</li>
+        <li> SpringToolSuite4</li>
+        <li> Spring Data JPA</li>
+        <li> Spring MVC</li>
+        <li>Bootstrap</li>
+        <li> Terminal</li>
+
+      </ul>
+
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+
+

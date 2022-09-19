@@ -1,1 +1,12 @@
-<p>add-form works!</p>
+<form *ngIf="selected">
+  <label>Name: </label> <input type="text" name="name" [(ngModel)]="newBand.name"> <br>
+  <label>Genre: </label> <input type="text" name="genre" [(ngModel)]="newBand.genre"> <br>
+  <label>Label: </label><input type="text" name="label" [(ngModel)]="newBand.label" /> <br>
+  <label>Origin: </label><input type="text" name="origin" [(ngModel)]="newBand.origin" /> <br>
+  <label>Lead Artist: </label><input type="text" name="leadArtist" [(ngModel)]="newBand.leadArtist" /> <br>
+  <label>Most Played: </label><input type="text" name="mostPlayed" [(ngModel)]="newBand.mostPlayed" /> <br>
+  <label>Albums: </label><input type="number" name="albums" [(ngModel)]="newBand.albums" /> <br>
+  <label>Singles: </label><input type="number" name="singles" [(ngModel)]="newBand.songs" /> <br>
+  <label>Members: </label><input type="number" name="members" [(ngModel)]="newBand.members" /> <br>
+  <button [routerLink]="['/band']">Add Artist</button>
+  </form>
